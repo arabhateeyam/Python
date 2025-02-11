@@ -1,8 +1,10 @@
 import streamlit as st
 import json
+import os
+print(os.getcwd())
 
 # Load quiz data from JSON file
-with open('/Users/purnimadhu/Desktop/python_projects/arabhatee/quiz.json', 'r', encoding='utf-8') as file:
+with open('quiz.json', 'r', encoding='utf-8') as file:
     quiz_data = json.load(file)
 
 st.title("स्वज्ञानपरीक्षार्थं प्रश्नाः - Interactive  Sanskrit Quiz for Beginners")
