@@ -13,8 +13,17 @@ st.title("स्वज्ञानपरीक्षार्थं प्रश
 user_answers = {}
 
 # Loop through each question
+#for i, q in enumerate(quiz_data):
+ #   user_answers[q["question"]] = st.radio(q["question"], q["options"], key=i)
 for i, q in enumerate(quiz_data):
-    user_answers[q["question"]] = st.radio(q["question"], q["options"], key=i)
+    # Insert a placeholder at the beginning of the options list
+    options = ["Select an answer"] + q["options"]
+    user_choice = st.radio(q["question"], options, key=i)
+    # Store the user's answer if they have selected an option
+    if user_choice != "Select an answer":
+        user_answers[q["question"]] = user_choice
+    else:
+        user_answers[q["question"]] = None
 
 # Submit button
 if st.button("Submit"):
